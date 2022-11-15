@@ -10,15 +10,15 @@ const withAuth = require('../../utils/auth');
 // route for creating new posts
 router.post('/', withAuth, (req, res) => {
     // sample request
-    // title and body are both required
+    // title and content are both required
     // {
     //     "title": "Sample Title",
-    //     "body": "This is my post body."
+    //     "content": "This is my post content."
     // }
     Post.create({
         title: req.body.title,
-        // calling two things body may become a problem
-        body: req.body.body,
+        // calling two things body may become a problem, so I went back and changed everything to content
+        content: req.body.content,
         user_id: req.session.user_id
     })
         // saves post data
@@ -31,10 +31,10 @@ router.post('/', withAuth, (req, res) => {
 // route for updating posts
 router.put('/:id', withAuth, (req, res) => {
     // sample request
-    // title and body are both required
+    // title and content are both required
     // {
     //     "title": "Sample Title",
-    //     "body": "This is my post body."
+    //     "content": "This is my post content."
     // }
     Post.update({
         title: req.body.title,
