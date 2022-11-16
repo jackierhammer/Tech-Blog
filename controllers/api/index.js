@@ -5,8 +5,8 @@ const router = require('express').Router();
 
 // model routes
 const userRoutes = require('./user-routes.js');
-const postRoutes = require('./post-routes');
-const commentRoutes = require('./comment-routes');
+const postRoutes = require('./post-routes.js');
+const commentRoutes = require('./comment-routes.js');
 
 // connects each set of routes to its api path
 router.use('/user', userRoutes);

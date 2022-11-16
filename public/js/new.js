@@ -5,7 +5,7 @@ async function newFormHandler(event) {
     event.preventDefault();
     //   stores the post's title and content in variables
     const title = document.querySelector('input[name="post-title"]').value;
-    const content = document.querySelector('input[name="content"]').value;
+    const content = document.querySelector('input[name="post-content"]').value;
 
     const response = await fetch(`/api/posts`, {
         method: 'POST',
@@ -14,7 +14,8 @@ async function newFormHandler(event) {
             content
         }),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            authorization: `Bearer ${token}`
         }
     });
     //   redirects user to dashboard after posting

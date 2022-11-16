@@ -1,1 +1,5 @@
 /* this is where css styles will be stored */
+
+* {
+    background-color: bisque;
+}

@@ -7,7 +7,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 
 // imports date format helper
-const formatDate = require('./utils/helpers');
+const helpers = require('./utils/helpers');
 
 // initializes app
 const app = express();
@@ -39,7 +39,7 @@ app.use(session(sess));
 
 // express handlebars
 // set us Handlebars.js engine 
-const hbs = exphbs.create({ formatDate });
+const hbs = exphbs.create({ helpers });
 
 // handlebars connection
 // commented out until database is done and debugged
@@ -47,7 +47,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // once controllers are set up, this will connect them to the app

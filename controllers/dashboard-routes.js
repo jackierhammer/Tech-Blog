@@ -10,6 +10,7 @@ const withAuth = require("../utils/auth");
 
 // route for a user seeing all of their own posts (admin)
 router.get("/", withAuth, (req, res) => {
+    // console.log("dashboard");
     Post.findAll({
         // this is how we find only the user's posts
         where: {
@@ -25,7 +26,6 @@ router.get("/", withAuth, (req, res) => {
             });
         })
         .catch((err) => {
-            console.log(err);
             // redirects the user to login page 
             // handlebars blah blah blah
             res.redirect("login");
@@ -42,6 +42,7 @@ router.get("/new", withAuth, (req, res) => {
 
 // route for edit post form
 router.get("/edit/:id", withAuth, (req, res) => {
+    // find by primary key
     Post.findByPk(req.params.id)
         .then(dbPostData => {
             if (dbPostData) {
