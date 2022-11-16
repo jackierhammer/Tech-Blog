@@ -39,12 +39,12 @@ app.use(session(sess));
 
 // express handlebars
 // set us Handlebars.js engine 
-// const hbs = exphbs.create({ formatDate });
+const hbs = exphbs.create({ formatDate });
 
 // handlebars connection
 // commented out until database is done and debugged
-// app.engine("handlebars", hbs.engine);
-// app.set("view engine", "handlebars");
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

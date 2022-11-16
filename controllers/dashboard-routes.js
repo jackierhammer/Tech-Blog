@@ -19,25 +19,25 @@ router.get("/", withAuth, (req, res) => {
         .then(dbPostData => {
             const posts = dbPostData.map((post) => post.get({ plain: true }));
             // commented out because no handlebars yet
-            // res.render("all-posts-admin", {
-            //     layout: "dashboard",
-            //     posts
-            // });
+            res.render("all-posts-admin", {
+                layout: "dashboard",
+                posts
+            });
         })
         .catch((err) => {
             console.log(err);
             // redirects the user to login page 
             // handlebars blah blah blah
-            // res.redirect("login");
+            res.redirect("login");
         });
 });
 
 // route for new post form
 router.get("/new", withAuth, (req, res) => {
     // renders the new post template
-    // res.render("new-post", {
-    //     layout: "dashboard"
-    // });
+    res.render("new-post", {
+        layout: "dashboard"
+    });
 });
 
 // route for edit post form
@@ -47,10 +47,10 @@ router.get("/edit/:id", withAuth, (req, res) => {
             if (dbPostData) {
                 const post = dbPostData.get({ plain: true });
                 // something something handlebars
-                // res.render("edit-post", {
-                //     layout: "dashboard",
-                //     post
-                // });
+                res.render("edit-post", {
+                    layout: "dashboard",
+                    post
+                });
             } else {
                 // post not found error
                 res.status(404).end();

@@ -8,14 +8,14 @@ const { Post, Comment, User } = require("../models");
 
 // route for finding all posts for homepage
 router.get("/", (req, res) => {
-// finds all posts and their associated users
+    // finds all posts and their associated users
     Post.findAll({
         include: [User],
     })
         .then((dbPostData) => {
             const posts = dbPostData.map((post) => post.get({ plain: true }));
             // will uncomment when handlebars is created for this
-            // res.render("all-posts", { posts });
+            res.render("all-posts", { posts });
         })
         .catch((err) => {
             res.status(500).json(err);
@@ -38,7 +38,7 @@ router.get("/post/:id", (req, res) => {
             if (dbPostData) {
                 const post = dbPostData.get({ plain: true });
                 // will uncomment when handlebars is created for this
-                // res.render("single-post", { post });
+                res.render("single-post", { post });
             } else {
                 // not found error
                 res.status(404).end();
@@ -56,7 +56,7 @@ router.get("/login", (req, res) => {
         return;
     }
     // will uncomment...handlebars...
-    // res.render("login");
+    res.render("login");
 });
 
 // signup route
@@ -66,7 +66,7 @@ router.get("/signup", (req, res) => {
         return;
     }
     // will uncomment...handlebars...
-    // res.render("signup");
+    res.render("signup");
 });
 
 // exports updated router
