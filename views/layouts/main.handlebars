@@ -1,1 +1,36 @@
 {{!-- main html frame for all pages --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="flex-column min-100-vh">
+  {{!-- navbar here --}}
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/login">Login</a></li>
+      {{!-- button referenced in public/js/logout.js --}}
+      <li><a href="#" id="logout-link">Logout</a></li>
+    </ul>
+  </nav>
+  <header>
+    <h1><a href="/">The Tech Blog</a></h1>
+  </header>
+  {{!-- content here --}}
+  <main>
+    {{{body}}}
+  </main>
+</body>
+
+{{!-- only script needed on this page is logout --}}
+<script src="/js/logout.js"></script>
+
+</html>
