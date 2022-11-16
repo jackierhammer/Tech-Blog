@@ -7,7 +7,7 @@
             Posted by {{post.User.username}} on {{format_date post.createdAt}}
         </div>
         <div>
-            {{post.body}}
+            {{post.content}}
         </div>
     </article>
     {{!-- only shows comments that exist --}}
@@ -18,7 +18,7 @@
             {{#each post.Comments}}
             <div>
                 <p>
-                    {{body}}
+                    {{content}}
                 </p>
                 <p>
                     {{User.username}}, {{format_date createdAt}}
@@ -28,17 +28,13 @@
         </div>
     </section>
     {{/if}}
-
     <form id="new-comment-form">
         <h3>Add New Comment</h3>
         <div>
             {{!-- stores post id for query selector in comment.js --}}
             <input type="hidden" name="post-id" value="{{post.id}}" />
-
             <label class="form-label" for="comment-content">Comment</label>
-
             <textarea name="comment-content"></textarea>
-
             <button type="submit" class="btn">Submit</button>
         </div>
     </form>
