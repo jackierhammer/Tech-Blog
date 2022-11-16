@@ -1,1 +1,15 @@
 {{!-- edit post page --}}
+
+<div>
+    <h2>Edit Post</h2>
+    <form id="edit-post-form">
+        <input type="hidden" name="post-id" value="{{post.id}}" />
+        <label for="post-title">Title</label>
+        <input type="text" name="post-title" value="{{post.title}}" />
+        <label for="post-content">Content</label>
+        <textarea name="post-content">{{post.body}}</textarea>
+        <button type="submit" class="btn">Update</button>
+    </form>
+</div>
+
+<script src="/js/edit.js"></script>
