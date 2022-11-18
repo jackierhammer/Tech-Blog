@@ -20,8 +20,6 @@ This repository contains the code for a tech blog application. Users can create 
 No installation is necessary to use the application
 
 ## Usage
-    
-Images and deployed app link coming soon!
 
 [Deployed Application](https://secret-mountain-88910.herokuapp.com/)
 
